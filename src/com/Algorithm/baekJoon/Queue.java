@@ -1,9 +1,11 @@
+package com.Algorithm.baekJoon;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Queue {
 
     private static int[] queue = new int[10001];
     private static int firstIndex = 0;
