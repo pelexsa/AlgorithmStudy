@@ -7,7 +7,7 @@ class ListNode {
 
 public class LinkedList {
 
-    private ListNode header = null;
+/*    private ListNode header = null;
 
     public void insertNode(ListNode listNode){
         if(header == null){
@@ -15,5 +15,5 @@ public class LinkedList {
         }else{
             listNode+""
         }
-    }
+    }*/
 }
