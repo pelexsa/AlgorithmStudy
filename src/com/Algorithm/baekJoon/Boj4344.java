@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class Boj4344 {
 
-    public static void main(String[] args) throws IOException {
+ /*   public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int cnt = Integer.parseInt(bf.readLine());
         StringTokenizer st;
@@ -30,5 +30,5 @@ public class Boj4344 {
             }
             System.out.printf("%.3f%%\n", (check / arrCnt) * 100);
         }
-    }
+    }*/
 }
