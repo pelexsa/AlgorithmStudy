@@ -1,45 +1,46 @@
 package com.Algorithm.dataStructure;
 
-class Node {
+class TreeNode {
     int data;
-    Node leftNode;
-    Node rightNode;
+    TreeNode leftTreeNode;
+    TreeNode rightTreeNode;
 
-    public Node(int data) {
+    public TreeNode(int data) {
         this.data = data;
     }
 }
 
 public class Tree {
 
-    public static void main(String[] args) {
-        int[] nodeData = {6, 11, 3, 10, 2, 5};
-        Node root = null;
+    /*public static void main(String[] args) {
+        int[] TreeNodeData = {6, 11, 3, 10, 2, 5};
+        TreeNode root = null;
 
-        for (int i = 0; i < nodeData.length; i++) {
+        for (int i = 0; i < TreeNodeData.length; i++) {
             if(root == null){
-                root = new Node(nodeData[i]);
+                root = new TreeNode(TreeNodeData[i]);
             }else{
-                searchNode(root, nodeData[i]);
+                searchTreeNode(root, TreeNodeData[i]);
             }
         }
         print(root);
-    }
+    }*/
+
     /**
      * 노드 생성
      * null 반환
-     * node.data > newData 왼쪽 삽입
-     * node.data < newData 오른쪽 삽입
+     * TreeNode.data > newData 왼쪽 삽입
+     * TreeNode.data < newData 오른쪽 삽입
      */
-    static void createNode(Node node, int newData){
-        if(node == null) return;
-        if(node.data > newData){
-            Node newNode = new Node(newData);
-            node.leftNode = newNode;
+    static void createTreeNode(TreeNode TreeNode, int newData){
+        if(TreeNode == null) return;
+        if(TreeNode.data > newData){
+            TreeNode newTreeNode = new TreeNode(newData);
+            TreeNode.leftTreeNode = newTreeNode;
         }
-        if(node.data < newData){
-            Node newNode = new Node(newData);
-            node.rightNode = newNode;
+        if(TreeNode.data < newData){
+            TreeNode newTreeNode = new TreeNode(newData);
+            TreeNode.rightTreeNode = newTreeNode;
         }
     }
 
@@ -51,30 +52,30 @@ public class Tree {
      * 도착한 곳의 데이터 > 입력할 데이터 -> 왼쪽 탐색
      * 도착한 곳의 데이터 < 입력할 데이터 -> 오른쪽 탐색
      */
-    static void searchNode(Node node, int newData) {
-        if (node == null) {
+    static void searchTreeNode(TreeNode TreeNode, int newData) {
+        if (TreeNode == null) {
             return;
         }
 
         //왼쪽으로 간 경우
-        if (node.data > newData) {
+        if (TreeNode.data > newData) {
             // 값이 없으면 insert
-            if (node.leftNode == null) {
-                createNode(node, newData);
+            if (TreeNode.leftTreeNode == null) {
+                createTreeNode(TreeNode, newData);
             } else {
                 // 값이 있으면 왼쪽 탐색
-                searchNode(node.leftNode, newData);
+                searchTreeNode(TreeNode.leftTreeNode, newData);
             }
         }
 
         //오른쪽으로 간 경우
-        if (node.data < newData) {
+        if (TreeNode.data < newData) {
             // 값이 없으면 insert
-            if (node.rightNode == null) {
-                createNode(node, newData);
+            if (TreeNode.rightTreeNode == null) {
+                createTreeNode(TreeNode, newData);
             } else {
                 // 값이 있으면 오른쪽 탐색
-                searchNode(node.rightNode, newData);
+                searchTreeNode(TreeNode.rightTreeNode, newData);
             }
         }
     }
@@ -82,10 +83,10 @@ public class Tree {
     /**
      * 출력 -> 왼 -> 오
      */
-    static void print(Node node){
-        System.out.println(node.data);
-        if(node.leftNode != null) print(node.leftNode);
-        if(node.rightNode != null) print(node.rightNode);
+    static void print(TreeNode TreeNode){
+        System.out.println(TreeNode.data);
+        if(TreeNode.leftTreeNode != null) print(TreeNode.leftTreeNode);
+        if(TreeNode.rightTreeNode != null) print(TreeNode.rightTreeNode);
     }
 
 }
