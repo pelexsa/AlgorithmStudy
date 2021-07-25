@@ -22,6 +22,7 @@ public class BinarySearchTreeMain {
 		tree.insertNode(7);
 		tree.insertNode(4);
 		tree.printNode();
+		tree.searchNode(11);
 	}
 }
 
@@ -35,6 +36,7 @@ class BinarySearchTree {
 		Node currentNode = root;
 
 		preOrderPrint(currentNode);
+		System.out.println();
 	}
 
 	void preOrderPrint(Node currentNode) {
@@ -115,7 +117,55 @@ class BinarySearchTree {
 		}
 	}
 
+	/*
+	 * while문 이용 탐색 
+	 */
+//	boolean searchNode(int data) {
+//		Node currentNode = root;
+//		while (currentNode != null) {
+//			if (currentNode.data == data) {
+//				System.out.println(data + ", 해당 하는값 존재");
+//				return true;
+//			}
+//			if (currentNode.data > data) {
+//				currentNode = currentNode.leftNode;
+//			}
+//
+//			if (currentNode.data < data) {
+//				currentNode = currentNode.rightNode;
+//			}
+//		}
+//		System.out.println(data + ", 해당 하는값 없음");
+//		return false;
+//	}
+
+	// 재귀 이용 탐색
 	boolean searchNode(int data) {
+		Node currentNode = root;
+		searchNodeFunction(currentNode, data);
+		return true;
+	}
+
+	boolean searchNodeFunction(Node currentNode, int data) {
+		if(currentNode.data == data) {
+			System.out.println(data + ", 해당 하는 값 존재");
+			return true;
+		}
+		if (currentNode.data > data) {
+			if(currentNode.leftNode == null) {
+				System.out.printf("검색한 값이 존재하지 않습니다.");
+			}else {
+				searchNodeFunction(currentNode.leftNode,data);
+			}
+		}
+
+		if (currentNode.data < data) {
+			if(currentNode.rightNode == null) {
+				System.out.printf("검색한 값이 존재하지 않습니다.");
+			}else {
+				searchNodeFunction(currentNode.rightNode,data);
+			}
+		}
 		return false;
 	}
 }
