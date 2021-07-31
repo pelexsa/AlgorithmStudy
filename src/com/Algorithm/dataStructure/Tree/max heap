@@ -1,1 +1,100 @@
+package study;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class heap {
+
+	public static void main(String[] args) {
+		List<Integer> heap = new ArrayList<Integer>();
+		insertNode(heap, 8);
+		System.out.println(heap.toString());
+		insertNode(heap, 9);
+		System.out.println(heap.toString());
+		insertNode(heap, 7);
+		System.out.println(heap.toString());
+		insertNode(heap, 2);
+		System.out.println(heap.toString());
+		insertNode(heap, 4);
+		System.out.println(heap.toString());
+		insertNode(heap, 3);
+		System.out.println(heap.toString());
+		insertNode(heap, 6);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+		deleteNode(heap);
+		System.out.println(heap.toString());
+
+	}
+
+	static int deleteNode(List<Integer> heap) {
+		if (heap.isEmpty())
+			return -1;
+		int deleteNum = heap.get(0);
+
+		int index = 0;
+		int childIndex = 1;
+
+		heap.set(0, heap.get(heap.size() - 1));
+		heap.remove(heap.size() - 1);
+
+		while (childIndex < heap.size() && heap.get(childIndex) >= heap.get(index)) {
+			if (heap.size() == childIndex + 1) {
+				reverseTemp(heap, index, childIndex);
+			} else {
+				if (heap.get(childIndex) > heap.get(childIndex + 1)) {
+					reverseTemp(heap, index, childIndex);
+				} else {
+					reverseTemp(heap, index, childIndex + 1);
+				}
+			}
+			childIndex = (index * 2) + 1;
+		}
+
+		for (int i = 0; i < heap.size(); i = (i * 2) + 1) {
+
+		}
+		return deleteNum;
+	}
+
+	static void reverseTemp(List<Integer> heap, int index, int childIndex) {
+		int temp = heap.get(childIndex);
+		heap.set(childIndex, heap.get(index));
+		heap.set(index, temp);
+		index = childIndex;
+	}
+
+	static void insertNode(List<Integer> heap, int data) {
+		if (heap.isEmpty()) {
+			heap.add(data);
+			return;
+		}
+
+		heap.add(data);
+		int index = heap.size() - 1;
+		while (true) {
+			if (heap.get((index - 1) / 2) < data) {
+				int temp = heap.get((index - 1) / 2);
+				heap.set((index - 1) / 2, data);
+				heap.set(index, temp);
+				index = (index - 1) / 2;
+			} else {
+				break;
+			}
+
+		}
+
+	}
+
+}
