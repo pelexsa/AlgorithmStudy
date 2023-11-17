@@ -16,5 +16,5 @@ public class Boj11478 {
                 set.add(s.substring(i, j));
 
         System.out.println(set.size());
-        }
+    }
 }
