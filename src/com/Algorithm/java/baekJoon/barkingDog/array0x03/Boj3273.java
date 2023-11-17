@@ -1,4 +1,4 @@
-package com.Algorithm.java.baekJoon.level.level01;
+package com.Algorithm.java.baekJoon.barkingDog.array0x03;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
