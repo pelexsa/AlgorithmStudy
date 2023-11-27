@@ -1,4 +1,4 @@
-package com.Algorithm.java.baekJoon.barkingDog.b0x09;
+package com.Algorithm.java.baekJoon.level.DFSBFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.Algorithm.java.baekJoon.barkingDog.b0x03;
+package com.Algorithm.java.baekJoon.level.배열;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

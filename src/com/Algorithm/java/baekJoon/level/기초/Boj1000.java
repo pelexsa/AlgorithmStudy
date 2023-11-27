@@ -1,4 +1,4 @@
-package com.Algorithm.java.baekJoon.level.level01;
+package com.Algorithm.java.baekJoon.level.기초;
 import java.util.Scanner;
 
 public class Boj1000 {
