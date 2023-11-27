@@ -18,8 +18,10 @@ public class Boj9012 {
         char[] arr = input.toCharArray();
         for (char c : arr)
             if (')' == c){
-                if(S.isEmpty() || ')' == S.pop())
+                if(S.isEmpty())
                     return "NO";
+                else
+                    S.pop();
             } else {
                 S.push(c);
             }
