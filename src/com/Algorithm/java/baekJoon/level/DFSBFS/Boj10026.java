@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.StringTokenizer;
 
 public class Boj10026 {
     public static void main(String[] args) throws IOException {
@@ -17,9 +16,9 @@ public class Boj10026 {
             for(int j=0; j<input.length(); j++){
                 char c = input.charAt(j);
                 board1[i][j] = c;
-                if('G'==c){
-                    // 적록색맹은 board2에 추가
-                }
+                if('G'==c)
+                    c = 'R';
+                board2[i][j] = c;
             }
         }
         br.close();
@@ -29,13 +28,32 @@ public class Boj10026 {
 
     static int bfs(int n, char[][] board) {
         boolean[][] vis = new boolean[n][n];
-
+        Queue<Node> Q = new LinkedList<>();
         int[] dx = {1, 0, -1, 0};
         int[] dy = {0, 1, 0, -1};
-        Queue<Node> Q = new LinkedList<>();
+        int ans = 0;
 
+        for (int i=0; i<board.length; i++) {
+            for (int j=0; j < board[i].length; j++) {
+                if (vis[i][j]) continue;
+                vis[i][j] = true;
+                Q.add(new Node(i, j));
+                ans++;
+                while(!Q.isEmpty()) {
+                    Node cur = Q.poll();
+                    for (int k = 0; k < 4; k++) {
+                        int nx = cur.X + dx[k];
+                        int ny = cur.Y + dy[k];
+                        if (nx<0 || nx>=n || ny<0 || ny>=n) continue;
+                        if (vis[nx][ny] || board[cur.X][cur.Y] != board[nx][ny]) continue;
+                        vis[nx][ny] = true;
+                        Q.add(new Node(nx, ny));
+                    }
+                }
 
-        return 0;
+            }
+        }
+        return ans;
     }
 
     static class Node {
